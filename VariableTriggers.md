@@ -138,7 +138,7 @@ s constant = constant
 
 만약 명령을 실행하는 플레이어의 이름이 studysulgi 라면, 이라는 코드는 어떻게 작성할 수 있을까요?
 
-@IF s <playername> = studysulgi - 명령을 실행하는 플레이어의 이름이 studysulgi 라면
+@IF s playername = studysulgi - 명령을 실행하는 플레이어의 이름이 studysulgi 라면
 
 (여기서의 playername 은 아랫 문단에서 다룰 플레이스 홀더입니다만, 예시를 위해 어쩔 수 없이 제시합니다.)
 
