@@ -45,5 +45,16 @@ VariableTriggers 내에 있는 이벤트중 Area, Click, Walk 의 이벤트를 �
 
 pos1과 pos2가 지정되면, /vt definearea [areaname] 을 입력함으로써 지정된 영역을 [areaname] 으로 정의할 수 있습니다. 이 때 실제 명령어를 입력할 때에는 [] 는 빼고, areaname 은 자신이 원하는 영역의 이름으로 적으면 AreaTriggers 를 이용할 준비가 완료됩니다.
 
+AreaTriggers 는 두 가지의 가장 큰 조건을 가지고 있습니다.
+- 지정된 영역에 들어왔는가? (ENTER)
+- 지정된 영역에서 나갔는가? (EXIT)
 
+즉 내가 지정한 영역에 들어왔을 때 수행할 명령과, 내가 지정한 영역에서 나갔을 때 수행할 명령을 지정할 수 있는 트리거라고 보면 됩니다. 가령 누군가가 내가 spawnpoint 라고 설정해놓은 영역에 들어오면 어서 오세요! 라고, 이 영역에서 나갔을 때는 안녕히 가세요! 라고 출력하고자 한다면:
+
+/vt setarea - pos1, pos2 지정
+/vt definearea spawnpoint - pos1, pos2 를 통해 지정된 영역을 spawnpoint 로 정의
+/vta spawnpoint ENTER @PLAYER 어서 오세요! - spawnpoint 로 정의된 영역에 들어왔을 경우 들어온 플레이어에게 어서 오세요! 라는 메세지를 출력하고,
+/vta spawnpoint EXIT @PLAYER 안녕히 가세요! - spawnpoint 로 정의된 영역에서 나갔을 경우 나간 플레이어에게 안녕히 가세요! 라는 메세지를 출력함.
+
+이렇게 4줄의 명령어를 입력함으로써 새로운 AreaTriggers 를 생성하는데에 성공한 것입니다.
 
