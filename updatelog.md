@@ -12,6 +12,7 @@
 - [PBE][Gameplay] 이제 상점에서 더 많은 아이템을 매입합니다.
 - [PBE][Gameplay] 세부적인 밸런스가 조정됩니다.
 - [PBE][Gameplay] 유저 간의 금전 거래가 /money pay <playername> <amount> 로 가능해집니다.
+- [PBE][Gameplay] 이제 /money top 을 통하여 게임에 참여하고 있는 플레이어들의 경제적 순위를 볼 수 있습니다.
 
 2024.08.05.
 - [PBE][Client] 이제 패치기의 파일 형태가 .exe 로 제공됩니다. (Special thanks to @lichbilly)
