@@ -43,7 +43,7 @@ VariableTriggers 내에 있는 이벤트중 Area, Click, Walk 의 이벤트를 �
 
 채팅창에 /vt setarea 라고 입력하게 되면, 가지고 있던 뼈 아이템을 완드로 이용하여 pos1, pos2 를 지정할 수 있게 됩니다. 일반적으로 pos1은 지정하고자 하는 영역의 왼쪽 윗 꼭짓점, pos2는 지정하고자 하는 영역의 오른쪽 아랫 꼭짓점을 선택하긴 합니다만, 이는 내가 어떠한 트리거를 지정하기 위한 영역을 설정하기만 하면 되므로 전혀 상관이 없습니다.
 
-pos1과 pos2가 지정되면, /vt definearea <areaname> 을 입력함으로써 지정된 영역을 <areaname> 으로 정의할 수 있습니다. 이 때 실제 명령어를 입력할 때에는 <> 는 빼고, areaname 은 자신이 원하는 영역의 이름으로 적으면 AreaTriggers 를 이용할 준비가 완료되었습니다.
+pos1과 pos2가 지정되면, /vt definearea [areaname] 을 입력함으로써 지정된 영역을 [areaname] 으로 정의할 수 있습니다. 이 때 실제 명령어를 입력할 때에는 [] 는 빼고, areaname 은 자신이 원하는 영역의 이름으로 적으면 AreaTriggers 를 이용할 준비가 완료됩니다.
 
 
 
