@@ -37,6 +37,19 @@ VariableTriggers 에는 Area / Click / Command / Event / Inventory / Walk 의 �
 
 그리고 6가지 종류의 트리거를 모두 다룰 수 있는 Script 트리거를 작성할 수 있습니다. 본 글에서는 이 Script 를 이용하거나 다루지는 않을 예정이지만, 언젠가 여건이 된다면 이 부분에 대해서도 충분히 설명을 추가하도록 하겠습니다.
 
+트리거는 크게 다음으로 나눌 수 있습니다.
+- 연산자 (@PLAYER, @CMD, @IF)
+- 플레이스 홀더 ([<playername>],[<health>])
+- 동적 플레이스 홀더 ([<cmdarg:1>],[<haspermission.*>]
+- EventTriggers (PlayerDeath, Join)
+- 명령문 (gamemode 1, gamemode 0)
+
+괄호 안에 적혀 있는 건 그저 예시일 뿐, 훨씬 더 많은 연산자와 플레이스 홀더들이 기다리고 있습니다. 이러한 내용들에 대해서 아주 자세히 설명해보도록 하겠습니다.
+
+# 연산자 (@)
+
+
+
 # AreaTriggers
 우리가 Minecraft 멀티플레이 서버를 열 때 많이 사용해본 플러그인 중 "WorldEdit" 이라는 플러그인이 있습니다. 아마 이 글을 읽어주시는 대부분의 분들은 아시는 플러그인일텐데, 이 플러그인은 나무 도끼를 완드로 이용하여 pos1, pos2 를 지정하고, 해당 위치에 대한 명령값을 입력하면 블럭이 replacement 되는 구조로 설계된 플러그인입니다.
 
