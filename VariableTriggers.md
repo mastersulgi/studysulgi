@@ -62,3 +62,22 @@ AreaTriggers 는 두 가지의 가장 큰 조건을 가지고 있습니다.
 
 이렇게 4줄의 명령어를 입력함으로써 새로운 AreaTriggers 를 생성하는데에 성공한 것입니다.
 
+한 가지의 예제를 더 수행해보겠습니다. 만약 내가 DeathZone 이라고 설정해놓은 영역에 들어가면 접속하고 있는 모든 플레이어 중 랜덤으로 한 명을 죽게 만들고, 이 영역에서 나갔을 때는 접속하고 있는 모든 플레이어를 죽게 만들고자 한다면 어떻게 구현하는게 좋을까요?
+
+/vt setarea - pos1, pos2 지정
+
+/vt definearea DeathZone - pos1, pos2 를 통해 지정된 영역을 DeathZone 으로 정의
+
+/vta DeathZone ENTER @CMDOP minecraft:kill @r - DeathZone 으로 정의된 영역에 들어오면 랜덤한 플레이어 한 명을 죽게 하고,
+
+/vta DeathZone EXIT @CMDOP minecraft:kill @a - DeathZone 으로 정의된 영역에서 나가면 모든 플레이어를 죽게 함.
+
+이번에도 4줄의 명령어를 입력함으로써 내가 원하는 기능을 구현하는데에 성공한 것입니다.
+
+이렇듯 VariableTriggers 플러그인은 물론이고, 코딩은 상당히 직관적입니다. 내가 원하는 기능을 구현하고자 한다면 우선 그 기능이 실행되기 위한 구조를 생각해보고, 그 구조를 그대로 코딩을 통해 만들어주기만 하면 됩니다.
+
+
+
+
+
+
