@@ -10,6 +10,8 @@
 - [PBE][Gameplay] 이제 3,500원을 소모하여 /수리 명령어를 이용할 수 있습니다. 이 명령어는 자신이 들고 있는 아이템을 수리합니다.
 - [PBE][Gameplay] 이제 빚이 30만원 이상일 경우 GM이 개입하여 화폐나 아이템을 통한 추징을 할 수 있습니다.
 - [PBE][Gameplay] 이제 상점에서 더 많은 아이템을 매입합니다.
+- [PBE][Gameplay] 세부적인 밸런스가 조정됩니다.
+- [PBE][Gameplay] 유저 간의 금전 거래가 /money pay <playername> <amount> 로 가능해집니다.
 
 2024.08.05.
 - [PBE][Client] 이제 패치기의 파일 형태가 .exe 로 제공됩니다. (Special thanks to @lichbilly)
