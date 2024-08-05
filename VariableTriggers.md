@@ -39,8 +39,8 @@ VariableTriggers 에는 Area / Click / Command / Event / Inventory / Walk 의 �
 
 트리거는 크게 다음으로 나눌 수 있습니다.
 - 연산자 (@PLAYER, @CMD, @IF)
-- 플레이스 홀더 ([<playername>],[<health>])
-- 동적 플레이스 홀더 ([<cmdarg:1>],[<haspermission.*>]
+- 플레이스 홀더 ("<playername>","<health>")
+- 동적 플레이스 홀더 ("<cmdarg:1>","<haspermission.*>")
 - EventTriggers (PlayerDeath, Join)
 - 명령문 (gamemode 1, gamemode 0)
 
