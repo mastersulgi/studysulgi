@@ -38,11 +38,11 @@ VariableTriggers 에는 Area / Click / Command / Event / Inventory / Walk 의 �
 그리고 6가지 종류의 트리거를 모두 다룰 수 있는 Script 트리거를 작성할 수 있습니다. 본 글에서는 이 Script 를 이용하거나 다루지는 않을 예정이지만, 언젠가 여건이 된다면 이 부분에 대해서도 충분히 설명을 추가하도록 하겠습니다.
 
 트리거는 크게 다음으로 나눌 수 있습니다.
-- 연산자 (@PLAYER, @CMD, @IF)
-- 플레이스 홀더 ("<playername>","<health>")
-- 동적 플레이스 홀더 ("<cmdarg:1>","<haspermission.*>")
-- EventTriggers (PlayerDeath, Join)
-- 명령문 (gamemode 1, gamemode 0)
+// - 연산자 (@PLAYER, @CMD, @IF)
+// - 플레이스 홀더 (<playername>,<health>)
+// - 동적 플레이스 홀더 (<cmdarg:1>,<haspermission.*>)
+// - EventTriggers (PlayerDeath, Join)
+// - 명령문 (gamemode 1, gamemode 0)
 
 괄호 안에 적혀 있는 건 그저 예시일 뿐, 훨씬 더 많은 연산자와 플레이스 홀더들이 기다리고 있습니다. 이러한 내용들에 대해서 아주 자세히 설명해보도록 하겠습니다.
 
