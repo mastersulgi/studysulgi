@@ -5,6 +5,7 @@
 
 # 저작권의 표시
 이 글의 기본 저작권은 Bukkit 에게 있으며, 설명 및 사용 예시는 @mastersulgi 에게 있습니다만, 편하게 레퍼런스 하셔도 무방합니다.
+여기에 적히는 내용들은 시간이 있을 때 최대한 꼼꼼하게 작성할 예정이며, 장시간 업데이트되지 않을 수도 있습니다.
 
 # 시작
 https://dev.bukkit.org/projects/variabletriggers
