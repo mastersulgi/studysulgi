@@ -175,9 +175,27 @@ s constant = constant
 # 월드에 대한 연산자
 
 - @SETBLOCK - 사용되지 않습니다.
-- @SETBLOCKSAFE [BLOCKID:DATA] [x,y,z]
+- @SETBLOCKSAFE [BLOCKID:DATA] [x,y,z] - 지정된 좌표의 블록을 BLOCKID:DATA 로 Replacement 합니다. 거의 사용하지 않습니다.
+- @TOGGLEBLOCK [BLOCKID:DATA] [x,y,z] - 지정된 좌표에 블록이 표시되거나 표시되지 않게 합니다.
 
-test \<playername>
+- @DROPITEM [ITEMNAME] [QUANTITY] [ENCHANTMENTS] [x,y,z] - 지정된 좌표에 지정한 아이템이 나오게 합니다.
+
+@DROPITEM 의 경우 간단한 RPG 아이템을 구현하는데에 있어서 도움이 될 수 있습니다만, 아이템의 이름이나 설명을 변경할 수 없기 때문에 사실 상 반쪽짜리 기능이나 다름이 없습니다.
+
+아이템의 이름은 영문으로 표기해야 하고, 만약 띄어쓰기가 있는 경우에는 _ 를 이용해서 붙여줘야 제대로 작동합니다.
+
+인챈트의 경우에는 띄어쓰기가 있더라도 _ 를 이용하지 않고 붙여서 써야 합니다. https://minecraftwiki.net/wiki/Enchanting 해당 페이지에 적혀있는 인챈트명을 그대로 쓰면 됩니다.
+
+- @SIGNTEXT [x,y,z] [LINE] [TEXT] - 지정된 좌표에 놓여있는 표지판의 지정된 열의 텍스트를 replacement 합니다.
+
+만약 좌표가 지정되어 있지 않다면, 해당 구문을 입력하였을 때 채팅창에 좌표를 묻는 질문이 나오고, 거기에 좌표를 입력해주면 됩니다. 또한 마인크래프트 내부에서는 컬러코드를 지원하고 있는데, [TEXT] 안에 컬러코드를 포함시키면 색상이 반영된 채로 텍스트가 수정됩니다.
+
+- @FALLINGBLOCK - 사용되지 않습니다.
+- @ENTITY [ENTITY] [QUANTITY] [x,y,z] - 지정한 좌표에 지정한 수량만큼의 엔티티를 소환합니다.
+
+일반적으로 몹을 소환할 때는 스폰알을 이용하면 간편하지만, 트리거를 통해서 엔티티의 소환을 원한다면 해당 연산자를 이용할 수 있습니다. [ENTITY] 항목에는 영문으로 된 엔티티 이름이 들어가야 하며, 소환할 수 있는 엔티티의 종류는 다음과 같습니다:
+
+BLAZE, CAVE_SPIDER, CHICKEN, COW, CREEPER, ENDER_DRAGON, ENDERMAN, EXPERIENCE_ORB, GHAST, GIANT, IRON_GOLEM, MAGMA_CUBE, MUSHROOM_COW, PIG, PIG_ZOMBIE, SHEEP, SILVERFISH, SKELETON, SLIME, SNOWMAN, SPIDER, SQUID, VILLAGER, FARMER, BLACKSMITH, BUTCHER, LIBRARIAN, PRIEST, WOLF, ZOMBIE
 
 
 
