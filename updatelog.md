@@ -9,6 +9,7 @@
 - [PBE][Gameplay][FIX] 스폰 지역에서 무적 상태가 되는 부분의 구현에 문제가 있어 잠정적으로 해당 기능이 비활성화됩니다.
 - [PBE][Gameplay] 스폰 지역에서 무적이 되고, 스폰 지역을 벗어나면 무적 상태가 해제되는 로직이 다시 적용됩니다.
 - [PBE][Gameplay] 이제 /exchange 명령어를 이용할 때 소지금이 부족하면 화폐가 발행되지 않게 수정됩니다.
+- [PBE][Gameplay] 이제 /exchange 명령어를 이용하여 자신이 원하는 만큼의 금액을 화폐로 발행할 수 있게 변경됩니다.
 
 2024.08.06.
 - [PBE][Gameplay] 매입하는 아이템의 가격에 대한 기준이 제시되었습니다. 자세한 내용은 https://github.com/mastersulgi/studysulgi/blob/main/pricelist.md 에서 확인하실 수 있습니다.
