@@ -40,8 +40,8 @@ VariableTriggers 에는 Area / Click / Command / Event / Inventory / Walk 의 �
 
 트리거는 크게 다음으로 나눌 수 있습니다.
 - 연산자 (@PLAYER, @CMD, @IF)
-- 플레이스 홀더 (playername,health)
-- 동적 플레이스 홀더 (cmdarg:1,haspermission.*)
+- 플레이스 홀더 (\<playername>,\<health>)
+- 동적 플레이스 홀더 (\<cmdarg:1>,\<haspermission.*>)
 - EventTriggers (PlayerDeath, Join)
 - 명령문 (gamemode 1, gamemode 0)
 
@@ -110,15 +110,15 @@ VariableTriggers 에는 Area / Click / Command / Event / Inventory / Walk 의 �
 
 [i|b|s] - 각각 integer, boolean, string 을 의미합니다. 코딩을 어느정도 해보신 분이라면 이해하시겠지만, 처음 보는 분들에게는 대단히 생소할 것 같습니다. 각각 정수, 참거짓판단, 문자열의 의미를 가지고 있습니다. 제시문의 형태를 정의한다고 생각하면 됩니다.
 
-[$VARIABLE|CONSTANT] - 정수에는 VARIABLE 이, 참거짓판단과 문자열에는 CONSTANT 가 대응합니다. 각각 변수와 상수라는 의미를 가지고 있는데, 정수형을 선택하였을 경우에는 반드시 $를 앞에 표기하게 되어 있는 것이 특징입니다. 제시문을 정의한다고 생각하면 됩니다.
+[$VARIABLE|CONSTANT] - 정수에는 \$VARIABLE 이, 참거짓판단과 문자열에는 CONSTANT 가 대응합니다. 각각 변수와 상수라는 의미를 가지고 있는데, 정수형을 선택하였을 경우에는 반드시 \$를 앞에 표기하게 되어 있는 것이 특징입니다. 제시문을 정의한다고 생각하면 됩니다.
 
-[=|!=|>|<|<=|>=\?=] - 부등호의 표기입니다. =는 같다, != 는 같지 않다, > 는 크다, < 는 작다, <= 는 작거나 같다, >= 는 크거나 같다 에 대응하며, 일반적으로 ?= 는 사용되지 않습니다. 뒤 이어 나올 조건문과 제시문을 비교하기 위한 표기입니다.
+[=|!=|>|<|<=|>=\?=] - 부등호의 표기입니다. =는 같다, != 는 같지 않다, \> 는 크다, \< 는 작다, \<= 는 작거나 같다, \>= 는 크거나 같다 에 대응하며, 일반적으로 ?= 는 사용되지 않습니다. 뒤 이어 나올 조건문과 제시문을 비교하기 위한 표기입니다.
 
-[$VARIABLE|CONSTANT|true|false] - 조건문을 나타냅니다. i에 VARIABLE, s에 CONSTANT, b에 true|false 가 대응합니다.
+[\$VARIABLE|CONSTANT|true|false] - 조건문을 나타냅니다. i에 \$VARIABLE, s에 CONSTANT, b에 true|false 가 대응합니다.
 
 이러한 내용을 종합해 보면 다음과 같습니다.
 
-i $variable = $variable
+i \$variable = \$variable
 
 b constant = true|false
 
@@ -128,19 +128,19 @@ s constant = constant
 
 만약 임의의 정수값 playername.int 가 1 이라면, 이라는 코드를 어떻게 작성하면 될까요?
 
-@IF i $playername.int = 1 - 임의의 정수값 playername.int 가 1이라면
+@IF i \$<playername>.int = 1 - 임의의 정수값 \$<playername.int> 가 1이라면
 
 특정한 권한을 가지고 있는지를 검사하고 싶은데, 만약 studysulgi.mod 권한을 가지고 있다면, 이라는 코드는 어떻게 작성하면 될까요?
 
-@IF b <haspermission:studysulgi.mod> = true - studysulgi.mod 권한을 가진게 사실이라면
+@IF b \<haspermission:studysulgi.mod> = true - studysulgi.mod 권한을 가진게 사실이라면
 
 (여기서의 haspermission 은 아랫 문단에서 다룰 플레이스 홀더입니다만, 예시를 위해 어쩔 수 없이 제시합니다.)
 
 만약 명령을 실행하는 플레이어의 이름이 studysulgi 라면, 이라는 코드는 어떻게 작성할 수 있을까요?
 
-@IF s playername = studysulgi - 명령을 실행하는 플레이어의 이름이 studysulgi 라면
+@IF s \<playername> = studysulgi - 명령을 실행하는 플레이어의 이름이 studysulgi 라면
 
-(여기서의 playername 은 아랫 문단에서 다룰 플레이스 홀더입니다만, 예시를 위해 어쩔 수 없이 제시합니다.)
+(여기서의 \<playername> 은 아랫 문단에서 다룰 플레이스 홀더입니다만, 예시를 위해 어쩔 수 없이 제시합니다.)
 
 @AND 와 @OR 은 @IF 연산자와 같이 사용되어야 하며, 조건을 추가할 떄 사용됩니다. 보통 첫번째 조건을 @IF 로 제시하고, @AND 나 @OR 로 이후의 조건을 제시하게 됩니다. @OR은 ~이거나, @AND 는 ~이고 의 조건문으로 사용되는데, @OR의 경우 여러가지 조건 중 하나만 만족하면 그 이후의 명령이 실행되는 반면 @AND로 추가된 조건은 모든 조건이 만족되어야 그 이후의 명령이 실행된다는 차이점이 있습니다.
 
@@ -158,7 +158,7 @@ s constant = constant
 
 @IF 구문과 짝을 이루어서 사용되며, 조건문이 끝나고 명령문까지 모두 입력된 이후에 사용되어야 합니다. 예시를 들자면
 
-@IF b haspermission:studysulgi.mod = true - 만약 studysulgi.mod 권한이 있다면
+@IF b \<haspermission:studysulgi.mod> = true - 만약 studysulgi.mod 권한이 있다면
 
 @PLAYER You are a moderator! - 관리자라는 메시지 표시
 
