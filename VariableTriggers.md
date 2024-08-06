@@ -197,7 +197,87 @@ s constant = constant
 
 BLAZE, CAVE_SPIDER, CHICKEN, COW, CREEPER, ENDER_DRAGON, ENDERMAN, EXPERIENCE_ORB, GHAST, GIANT, IRON_GOLEM, MAGMA_CUBE, MUSHROOM_COW, PIG, PIG_ZOMBIE, SHEEP, SILVERFISH, SKELETON, SLIME, SNOWMAN, SPIDER, SQUID, VILLAGER, FARMER, BLACKSMITH, BUTCHER, LIBRARIAN, PRIEST, WOLF, ZOMBIE
 
-<tr><td>$\<playername></tr></td>
+# 플레이어에 대한 연산자
+
+- @TP [LOCATION] - 미리 지정해둔 장소로 명령을 실행한 플레이어를 이동합니다.
+
+일반적으로 좌표를 입력받는 것과는 다르게, 이 연산자는 기존에 /vt setloc $ \<object>.variable 로 이동할 곳을 지정해두고 [LOCATION] 을 $ \<object>.variable 로 replacement 해야 작동합니다.
+
+- @WORLDTP [playername] [world] 특정한 사용자를 특정한 이름의 월드로 이동시킵니다.
+
+사실 상 거의 사용되지 않습니다. EssentialsX 플러그인이나 MultiWorld 플러그인과 같이 사용하는 경우에는 /world [world] 혹은 /mw move \<playername> [world] 로 쉽게 대체가 가능하기 때문입니다.
+
+- @OPENINV - InventoryTriggers.yml 파일에 있는 GUI 형태의 트리거를 시작합니다.
+
+일반적으로 버그가 많아서 거의 사용하지 않는다고 알려져있지만, 개인적인 생각으로는 구현을 하고 디버그를 하는게 다른 연산자에 비해서 고 난이도이기 때문에 다루는 사람들이 많이 없는 것으로 보여집니다. 이 부분에 대해서는 충분한 정보를 수집하고 난 뒤에 수정하도록 하겠습니다.
+
+- @CLOSEINV - GUI 형태의 트리거를 강제 종료합니다.
+- @MODIFYPLAYER [player] [modification] [value] - 지정된 플레이어의 상태를 value 로 변경합니다.
+
+트리거를 이용하여 개발할 수 있는 영역 중 가장 범위가 넓은 부분입니다. [modification] 안에 들어갈 수 있는 옵션은 다음과 같습니다:
+
+- HEALTH number
+- FOOD number
+- SATURATION number
+- EXP and XP number
+- WALKSPEED number, please note over 1 is insanely fast; use 0.2 for a little bit of boost.
+- FLYSPEED number, please note over 1 is insanely fast; use 0.2 for a little bit of boost.
+- DISPLAYNAME string, you can use color codes like &a
+- LISTNAME string, you can use colors codes like &a
+- FLYING boolean
+- GAMEMODE string, use creative, survival, or adventure
+- MAXHEALTH number
+- HELDITEM string, use a valid material, like cobblestone
+- HELDITEM:MATERIAL string, this keeps the item data and just swaps the material type
+- HELDITEM:ID string, same as above but in ID form
+- HELDITEM:META number, used to change the type of something such as white wool to pink wool
+- HELDITEM:AMOUNT number up to 64
+- HELDITEM:ENCHANT string, use a valid enchant like damage_all. This will always be a level 1 enchant
+- HELDITEM:DISPLAYNAME string, keeps data but changes the item name. Color codes work.
+- HELDITEM:LORE:SET string, sets the lore to that exactly.
+- HELDITEM:LORE:ADD string, must already have lore to add to
+- HELDITEM:LORE:REMOVE string, kills all lore
+- HIDDEN boolean, hides (or unhides) the player from the server (invisible and in tab)
+- BANNED boolean, this requires advanced mode, and won't kick the player from the server
+- OPERATOR boolean, this required advanced mode and puts a message in console
+
+재미있게도 이렇게 많은 modification 중 대부분이 EssnetialsX 플러그인으로 대체가 되기 때문에, 보통은 FLYING, GAMEMODE, MAXHEALTH, HELDITEM 정도의 modification 만 사용합니다. 이에 대한 자세한 설명을 덧붙입니다.
+
+- FLYING boolean - 명령을 실행하고 있는 사람의 플라이의 가능 여부를 조정합니다.
+
+이를테면 studysulgi.mod 권한을 가지고 있는 사람이라면 플라이를 키고, 그렇지 않다면 끄게 만들고 싶다면 다음과 같이 작성할 수 있습니다:
+
+@IF b \<haspermission:studysulgi.mod> = true
+@MODIFYPLAYER \<playername> FLYING true
+@ELSE
+@MODIFYPLAYER \<playername> FLYING false
+@EXIT
+@ENDIF
+
+- GAMEMODE string - 명령을 실행하고 있는 사람의 게임모드를 조정합니다.
+
+여기서 string 에 0,1,2,3 등 EssentialsX 처럼 숫자를 넣으면 작동하지 않고, 게임 모드의 정확한 명칭인 Survival, Creative, Spectator 등을 적어주어야 작동합니다.
+
+- maxhealth number - 명령을 실행하고 있는 사람의 최대체력을 조정합니다.
+
+마찬가지로 number 에 적은 숫자로 명령을 실행하는 사람의 최대체력을 바꿔줍니다. 기본적인 세팅 값은 20 이므로 이보다 더 크게하면 다른 플러그인이나 모드가 없어도 플레이어가 더 많은 체력을 가지게 할 수 있습니다.
+
+- HELDITEM:ID - 플레이어가 들고 있는 아이템의 ItemID 입니다.
+- HELDITEM:META - 플레이어가 들고 있는 아이템의 메타데이터입니다. 양털의 색상처럼 35:4 에서 4를 의미합니다.
+- HELDITEM:AMOUNT - 플레이어가 들고 있는 아이템의 개수입니다. 최대치는 64입니다.
+- HELDITEM:ENCHANT - 플레이어가 들고 있는 아이템에 특정 인챈트를 부여합니다.
+
+일반적으로 ENCHANT의 구문은 사용되지 않습니다. 이유라면 어떤 인챈트를 부여하던 레벨이 1로 고정되기 때문에 실질적인 아이템을 만드는데에 있어서는 큰 의미가 없고, 고유 아이템을 만들때에 복사나 위조의 방지를 위해서 강제로 인챈트를 부여하는 기능 말고는 사용을 하는데에 있어서의 제약이 너무 많기 때문입니다.
+
+- HELDITEM:DISPLAYNAME - 플레이어가 들고 있는 아이템의 이름을 변경합니다.
+- HELDITEM:LORE:SET - 플레이어가 들고 있는 아이템의 설명을 최초 추가합니다.
+- HELDITEM:LORE:ADD - 플레이어가 들고 있는 아이템의 설명을 추가합니다.
+
+여기서 LORE:SET 과 LORE:ADD 의 차이점이라고 한다면, 반드시 ADD 보다 SET 이 먼저 작성되어야 한다는 점입니다. 만약 이 순서가 바뀐다면 SET으로 작성된 설명은 추가되지 않고 ADD로 작성된 설명 1줄만 추가됩니다.
+
+- HELDITEM:LORE:REMOVE - 플레이어가 들고 있는 아이템의 설명을 모두 삭제합니다.
+
+
 
 
 
