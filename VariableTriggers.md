@@ -172,6 +172,13 @@ s constant = constant
 
 이렇듯 @IF와 @ENDIF 는 늘 붙어 다니는 짝꿍과 같은 존재입니다. 일반적인 프로그래밍 언어들이 대부분 if와 중괄호를 이용해서 시작과 끝을 표시하는 것과 다르게 조건문을 끝내기 위한 연산자가 따로 존재합니다.
 
+# 월드에 대한 연산자
+
+- @SETBLOCK - 사용되지 않습니다.
+- @SETBLOCKSAFE [BLOCKID:DATA] [x,y,z]
+
+test \<playername>
+
 
 
 
