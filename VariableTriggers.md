@@ -128,7 +128,7 @@ s constant = constant
 
 만약 임의의 정수값 playername.int 가 1 이라면, 이라는 코드를 어떻게 작성하면 될까요?
 
-@IF i \$<playername>.int = 1 - 임의의 정수값 \$<playername.int> 가 1이라면
+@IF i \<playername>.int = 1 - 임의의 정수값 \<playername.int>\ 가 1이라면
 
 특정한 권한을 가지고 있는지를 검사하고 싶은데, 만약 studysulgi.mod 권한을 가지고 있다면, 이라는 코드는 어떻게 작성하면 될까요?
 
