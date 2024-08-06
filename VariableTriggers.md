@@ -248,10 +248,15 @@ BLAZE, CAVE_SPIDER, CHICKEN, COW, CREEPER, ENDER_DRAGON, ENDERMAN, EXPERIENCE_OR
 이를테면 studysulgi.mod 권한을 가지고 있는 사람이라면 플라이를 키고, 그렇지 않다면 끄게 만들고 싶다면 다음과 같이 작성할 수 있습니다:
 
 @IF b \<haspermission:studysulgi.mod> = true
+
 @MODIFYPLAYER \<playername> FLYING true
+
 @ELSE
+
 @MODIFYPLAYER \<playername> FLYING false
+
 @EXIT
+
 @ENDIF
 
 - GAMEMODE string - 명령을 실행하고 있는 사람의 게임모드를 조정합니다.
