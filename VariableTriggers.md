@@ -282,9 +282,39 @@ BLAZE, CAVE_SPIDER, CHICKEN, COW, CREEPER, ENDER_DRAGON, ENDERMAN, EXPERIENCE_OR
 
 - HELDITEM:LORE:REMOVE - 플레이어가 들고 있는 아이템의 설명을 모두 삭제합니다.
 
+# 효과 연산자
 
+이 글에서는 효과 연산자에 대해서는 다루지 않을 예정입니다. 효과 연산자의 경우 연산자 중에서도 가장 부수적인 연산자로 꼽히는데, 이러한 효과 연산자를 활용해야겠다고 마음을 먹은 경우 이 글을 참조하지 않아도 언제든지 방법을 찾을 수 있는 수준에 도달할 것으로 예상되기 때문입니다.
 
+# 변수 수집 연산자
 
+- @GETBLOCK [obj.var] [location] - 지정된 위치에 있는 블럭의 정보를 obj.var 에 저장합니다.
+- @GETENTITYCOUNT [obj.var] [entity] [radius] - 명령을 실행한 사람의 설정된 반경에 설정된 엔티티의 수를 obj.var 에 저장합니다.
+- @GETLIGHT - 사용하지 않습니다.
+
+# 동적 변수 연산자
+
+- @SETINT [obj.var] [int] - obj.var 의 숫자를 변경합니다.
+- @ADDINT [obj.var] [int] - obj.var 에 지정한 숫자를 더합니다.
+- @SUBINT [obj.var] [int] - obj.var 에 지정한 숫자를 뺍니다.
+- @MULINT [obj.var] [int] - obj.var 에 지정한 숫자를 곱합니다.
+- @DIVINT [obj.var] [int] - obj.var 에 지정한 숫자를 나눕니다.
+
+트리거에서 구문이 사용되었는지를 확인하고 쿨타임을 정하거나, 어떠한 변수값을 저장할 때 유용하게 쓰이는 연산자입니다. 트리거 개발을 하는데에 있어서 중요도가 상당히 높습니다.
+
+- @SETBOOL [obj.var] [true|false] - obj.var 의 참거짓판단을 설정합니다.
+- @SETSTR [obj.var] [text] - obj.var 를 text 로 지정합니다.
+- @ADDSTR [obj.var] [text] - obj.var 에 text 를 추가합니다.
+- @GETSTRLEN [obj.var] [stringtotest] - stringtotest 의 글자 수를 확인하고 obj.var 에 저장합니다.
+- @DELVAR - 사용하지 않습니다.
+- @DELOBJ - 사용하지 않습니다.
+- @STRBUILD - 사용하지 않습니다.
+
+# 다음 파트로 넘어가기 전..
+
+상당히 많은 파트로 전개되어 있는 것이 연산자 항목이지만, 그만큼 VariableTriggers 를 이용하여 트리거를 구현하는데에 있어서 빠질 수 없는게 연산자 항목입니다. 작성을 하고보니 중요도에 비해 설명이 부실한 파트도 있습니다만, 그런 부분에 대해서는 예제 코드 등을 추후 추가하도록 하겠습니다.
+
+# 플레이스 홀더 \<>
 
 
 
